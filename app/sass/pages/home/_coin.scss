@@ -1,0 +1,56 @@
+.coin {
+  padding-top: 72px;
+
+  .main-title {
+    margin-bottom: 48px;
+  }
+
+  &__block {
+    margin-bottom: 40px;
+
+    .name {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .detail {
+      display: flex;
+      align-items: flex-end;
+
+      .count {
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 0.02em;
+        margin-right: 11px;
+      }
+
+      .info {
+        .item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1px;
+
+          .info__name {
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: rgba(57, 55, 56, 0.75);
+            margin-right: 12px;
+          }
+
+          .info__count {
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #8DC045;
+          }
+        }
+      }
+    }
+  }
+}

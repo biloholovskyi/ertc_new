@@ -2,10 +2,11 @@
   padding: 0;
   margin: 0;
   outline: none;
-  color: #FFFFFF;
+  color: #393738;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: Inter;
 }
 
 a,
@@ -29,6 +30,12 @@ input {
   border-radius: 0;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
 /*settings*/
 @import "fonts";
 @import "var";
@@ -38,6 +45,9 @@ input {
 @import "footer";
 
 /*pages*/
+// home
+@import "pages/home/home";
+@import "pages/home/coin";
 
 /*media*/
 @import "media/1199";

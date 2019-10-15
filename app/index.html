@@ -8,11 +8,91 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MySite</title>
+  <title>ERTC</title>
 </head>
 <body>
+<header class="header">
+  <a href="/ertc_new/app/">
+    <picture class="header__logo">
+      <source type="image/img+svg" srcset="./media/icon/logo.svg">
+      <img src="./media/icon/logo.svg" alt="ertc">
+    </picture>
+  </a>
+  <div class="header__left">
+    <ul class="header__nav">
+      <li><a href="about">О проекте</a></li>
+      <li><a href="news">Новости</a></li>
+      <li><a href="contact">Контакты</a></li>
+    </ul>
+    <div class="lang">Русский <span class="icon"></span></div>
+    <a href="https://client.ertc.land/auth/login" target="_blank" class="enter-platform">Вход на платформу</a>
+  </div>
+</header>
 
+<section class="home">
+  <video src="./media/video/show.mp4" class="show" autoplay muted loop poster="./media/image/poster.jpg"></video>
+  <div class="home__content">
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <h1 class="home__title">Электронная финансовая система</h1>
+          <a href="https://client.ertc.land/auth/login" target="_blank" class="home__enter-platform">Войти на платформу ERtc</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="coin">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="main-title">ERTC coin</h3>
+        <div class="coin__block">
+          <div class="name">Валидировано</div>
+          <div class="detail">
+            <div class="count">418.25</div>
+            <div class="info">
+              <div class="item">
+                <div class="info__name">Eur</div>
+                <div class="info__count">+1.45</div>
+              </div>
+              <div class="item">
+                <div class="info__name">%</div>
+                <div class="info__count">+0.35</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="coin__block">
+          <div class="name">Эмиссия ERTcoin</div>
+          <div class="detail">
+            <div class="count">998’981.9</div>
+            <div class="info">
+              <div class="item">
+                <div class="info__name">Eur</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="coin__block">
+          <div class="name">Курс ERTC</div>
+          <div class="detail">
+            <div class="count">5.45</div>
+            <div class="info">
+              <div class="item">
+                <div class="info__name">Eur</div>
+                <div class="info__count">+0.05</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="buildjs/index.js"></script>
