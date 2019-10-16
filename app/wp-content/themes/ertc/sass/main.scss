@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  color: #393738;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/*settings*/
+@import "fonts";
+@import "var";
+
+/*over use blocks*/
+@import "header";
+@import "footer";
+
+/*pages*/
+// home
+@import "pages/home/home";
+@import "pages/home/coin";
+@import "pages/home/news";
+@import "pages/home/video";
+
+/*media*/
+@import "media/1199";
+@import "media/991";
+@import "media/767";
+@import "media/575";

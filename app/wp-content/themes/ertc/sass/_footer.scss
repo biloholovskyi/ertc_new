@@ -1,0 +1,117 @@
+.footer {
+  padding: 81px 0 75px 0;
+
+  &__nav-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  &__nav-list {
+    li {
+      list-style: none;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        font-size: 14px;
+        line-height: 21px;
+        color: #393738;
+      }
+    }
+  }
+
+  &__subs-form {
+    width: 100%;
+
+    .footer__subs-input {
+      font-size: 16px;
+      line-height: 40px;
+      padding: 0 16px;
+      margin-bottom: 24px;
+      border: 1px solid #D8D8D8;
+      border-radius: 1px;
+      width: 100%;
+
+      &::placeholder {
+        opacity: .4;
+      }
+    }
+
+    .footer__subs-submit {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 40px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      width: 100%;
+      background: #393738;
+      border-radius: 1px;
+      margin-bottom: 24px;
+      border: none;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+
+    .item {
+      display: block;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 16px;
+      border: 1px solid rgba(34, 34, 34, 0.2);
+      background-size: 16px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__coop {
+    display: flex;
+    align-items: center;
+
+    .coop {
+      position: relative;
+      font-size: 14px;
+      line-height: 21px;
+      margin-right: 34px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 32px;
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        top: 50%;
+        right: -16px;
+        margin-top: -16px;
+      }
+    }
+
+    .coop-link {
+      margin-right: 18px;
+      font-size: 14px;
+      line-height: 21px;
+      text-decoration-line: underline;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

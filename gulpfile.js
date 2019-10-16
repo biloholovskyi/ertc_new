@@ -9,7 +9,7 @@ const babel = require('gulp-babel');
 
 gulp.task('default', function() {
     browserSync.init({
-      proxy: "http://localhost:8888/ertc_new/app",
+      proxy: "http://localhost:8888/ertc_new_wp/app",
       // port: 8888
     });
     gulp.watch("app/sass/**/*.scss", function () {
