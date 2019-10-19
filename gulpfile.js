@@ -1,29 +1,53 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const minCSS = require('gulp-clean-css');
 const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+
+const webConfig = {
+  output: {
+    filename: 'index.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: '/node_modules/'
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      }
+    ]
+  }
+};
 
 gulp.task('default', function() {
-    browserSync.init({
-      proxy: "http://localhost:8888/ertc_new/app",
-    });
-    gulp.watch("app/wp-content/themes/erts/sass/**/*.scss", function () {
-        return gulp.src("app/wp-content/themes/erts/sass/**/*.scss")
-          .pipe(sass())
-          .pipe(minCSS())
-          .pipe(gulp.dest("app/wp-content/themes/erts/css"))
-          .pipe(browserSync.stream());
-    });
-    gulp.watch("app/wp-content/themes/erts/js/**/*.js", function () {
-      return gulp.src("app/wp-content/themes/erts/js/index.js")
-        .pipe(babel({
-          presets: ['@babel/env']
-        }))
-        .pipe(gulp.dest("app/wp-content/themes/erts/buildjs"))
-        .pipe(browserSync.stream());
-    });
-    gulp.watch("app/**/*.php").on('change', browserSync.reload);
-    gulp.watch("app/**/*.html").on('change', browserSync.reload);
-    gulp.watch("app/wp-content/themes/erts/js/*.js").on('change', browserSync.reload);
+  browserSync.init({
+    proxy: "http://localhost:8888/myproject/app",
+  });
+  gulp.watch("wp-content/themes/ertc/sass/**/*.scss", function () {
+    return gulp.src("wp-content/themes/ertc/sass/**/*.scss")
+      .pipe(sass())
+      .pipe(autoprefixer({
+        browserslist: ['> 0.1%'],
+        cascade: false
+      }))
+      .pipe(cleanCSS({
+        level: 2
+      }))
+      .pipe(gulp.dest("wp-content/themes/ertc/css"))
+      .pipe(browserSync.stream());
+  });
+  gulp.watch("wp-content/themes/ertc/js/**/*.js", function () {
+    return gulp.src("wp-content/themes/ertc/js/index.js")
+      .pipe(webpack(webConfig))
+      .pipe(gulp.dest("wp-content/themes/ertc/buildjs"))
+      .pipe(browserSync.stream());
+  });
+  gulp.watch("wp-content/themes/ertc/**/*.php").on('change', browserSync.reload);
+  gulp.watch("wp-content/themes/ertc/**/*.html").on('change', browserSync.reload);
 });
