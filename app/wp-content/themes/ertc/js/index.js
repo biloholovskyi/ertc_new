@@ -1,5 +1,9 @@
 $(document).ready(function(){
   $(".more-news").on("click", moreNews);
+  chart();
+  setTimeout(() => {
+    chart();
+  }, 5000);
 });
 
 $(window).resize(function () {

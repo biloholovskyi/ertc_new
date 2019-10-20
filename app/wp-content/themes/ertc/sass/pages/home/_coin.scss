@@ -1,5 +1,6 @@
 .coin {
   padding-top: 72px;
+  padding-bottom: 155px;
 
   .main-title {
     margin-bottom: 48px;
@@ -51,6 +52,24 @@
           }
         }
       }
+    }
+  }
+
+  .main-graph {
+    padding-top: 108px;
+
+    &__title {
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-left: 13px;
+    }
+
+    #height {
+      margin-bottom: 50px;
     }
   }
 }

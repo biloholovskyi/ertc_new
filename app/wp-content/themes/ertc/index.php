@@ -15,12 +15,11 @@
       </div>
     </div>
   </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <section class="coin">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-			<?php echo do_shortcode('[visualizer id="59"]'); ?>
+        <div class="col-6">
           <h3 class="main-title">ERTC coin</h3>
           <div class="coin__block">
             <div class="name">Валидировано</div>
@@ -64,9 +63,146 @@
             </div>
           </div>
         </div>
+        <div class="col-6">
+          <div class="main-graph">
+            <div class="main-graph__title">Рост ERTC</div>
+            <canvas id="height"></canvas>
+            <div class="main-graph__title">Эмиссия коинов</div>
+            <canvas id="emission"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  <script>
+    let height = document.getElementById('height').getContext('2d');
+    let gradientStroke = height.createLinearGradient(0, 100, 0, 250);
+    gradientStroke.addColorStop(0, "rgba(141, 192, 69, 0.4)");
+    gradientStroke.addColorStop(1, "rgba(141, 192, 69, 0)");
+    let chart = new Chart(height, {
+      type: 'line',
+      showTooltips: false,
+
+      data: {
+        labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+        datasets: [{
+          label: '',
+          backgroundColor: gradientStroke,
+          pointRadius: 0,
+          borderColor: '#8DC045',
+          borderWidth: 2,
+          data: [2, 2.2, 2, 3, 3.4, 5, 3.3, 4, 3, 4.4, 5, 5.2, 5, 6, 5.4, 5, 6.3, 7, 7, 7.4, 7.1, 7.1, 6.3]
+        }]
+      },
+
+      options: {
+        legend: {
+          display: false,
+          showLines: false,
+          gridLine: false
+        },
+        scales: {
+          xAxes: [{
+            display: false,
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(0,0,0,0)',
+              zeroLineColor: 'rgba(0,0,0,0)'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            ticks: {
+              beginAtZero: true,
+              stepSize: 2.5,
+              max: 10,
+              fontColor: 'rgba(57, 55, 56, 0.75)',
+              fontSize: 14,
+              padding: 15
+            },
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(0, 0, 0, 0.1)',
+              tickMarkLength: 0,
+              zeroLineColor: 'rgba(0,0,0,0.1)'
+            }
+          }]
+        },
+        tooltips: {
+          enabled: false
+        },
+        elements: {
+          line: {
+            tension: 0
+          }
+        }
+      }
+    });
+
+    let emission = document.getElementById('emission').getContext('2d');
+    let gradientStroke2 = emission.createLinearGradient(0, 100, 0, 250);
+    gradientStroke.addColorStop(0, "rgba(141, 192, 69, 0.4)");
+    gradientStroke.addColorStop(1, "rgba(141, 192, 69, 0)");
+    let chart2 = new Chart(emission, {
+      type: 'line',
+      showTooltips: false,
+
+      data: {
+        labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+        datasets: [{
+          label: '',
+          backgroundColor: gradientStroke,
+          pointRadius: 0,
+          borderColor: '#8DC045',
+          borderWidth: 2,
+          data: [2.4, 2., 2, 4, 4.4, 6, 6.3, 6, 6, 6.4, 6.5, 6.2, 6, 6, 6.4, 6.5, 6.3, 7, 7, 7.4, 7.1, 7.1, 6.3]
+        }]
+      },
+
+      options: {
+        legend: {
+          display: false,
+          showLines: false,
+          gridLine: false
+        },
+        scales: {
+          xAxes: [{
+            display: false,
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(0,0,0,0)',
+              zeroLineColor: 'rgba(0,0,0,0)'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            ticks: {
+              beginAtZero: true,
+              stepSize: 2.5,
+              max: 10,
+              fontColor: 'rgba(57, 55, 56, 0.75)',
+              fontSize: 14,
+              padding: 15
+            },
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(0, 0, 0, 0.1)',
+              tickMarkLength: 0,
+              zeroLineColor: 'rgba(0,0,0,0.1)'
+            }
+          }]
+        },
+        tooltips: {
+          enabled: false
+        },
+        elements: {
+          line: {
+            tension: 0
+          }
+        }
+      }
+    });
+  </script>
 
   <section class="news">
     <div class="container">
@@ -79,7 +215,7 @@
 				'numberposts'      => 1,
 				'orderby'          => 'date',
 				'order'            => 'DESC',
-				'tag'              =>  'main',
+				'tag'              => 'main',
 				'post_type'        => 'post',
 				'suppress_filters' => true,
 			);
@@ -92,10 +228,12 @@
                 <picture>
                   <source type="image/img+svg"
                           srcset="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>">
-                  <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" alt="<?php echo $post->post_title; ?>">
+                  <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>"
+                       alt="<?php echo $post->post_title; ?>">
                 </picture>
                 <span class="content">
-                  <span class="content__small-title"><?php $cat = get_the_category( $post->ID ); echo $cat[0]->cat_name; ?></span>
+                  <span class="content__small-title"><?php $cat = get_the_category( $post->ID );
+	                  echo $cat[0]->cat_name; ?></span>
                   <span class="content__title"><?php echo $post->post_title; ?></span>
                 </span>
               </a>
@@ -111,7 +249,7 @@
 			  'numberposts'      => 3,
 			  'orderby'          => 'date',
 			  'order'            => 'DESC',
-			  'tag'              =>  'importants',
+			  'tag'              => 'importants',
 			  'post_type'        => 'post',
 			  'suppress_filters' => true,
 		  );
@@ -128,7 +266,8 @@
                   <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>"
                        alt="<?php the_title(); ?>">
                 </picture>
-                <div class="news__item__small-title"><?php $cat = get_the_category( $post->ID ); echo $cat[0]->cat_name; ?></div>
+                <div class="news__item__small-title"><?php $cat = get_the_category( $post->ID );
+					echo $cat[0]->cat_name; ?></div>
                 <div class="news__item__title"><?php the_title(); ?></div>
               </div>
             </div>
@@ -145,30 +284,33 @@
       <div class="row all-news">
 		  <?php
 		  $args = array(
-			  'numberposts'      => -1,
+			  'numberposts'      => - 1,
 			  'orderby'          => 'date',
 			  'order'            => 'DESC',
 			  'post_type'        => 'post',
 			  'suppress_filters' => true,
 		  );
 
-		  $posts = get_posts( $args );
+		  $posts      = get_posts( $args );
 		  $news_count = 0;
 		  foreach ( $posts as $post ) {
 			  setup_postdata( $post );
 			  $tag = get_the_tags( $post->ID );
-			  if($tag[0]->slug != "main" and $tag[0]->slug != "importants") {
-				  $news_count++;
+			  if ( $tag[0]->slug != "main" and $tag[0]->slug != "importants" ) {
+				  $news_count ++;
 				  ?>
                 <div class="col-4">
-                  <div class="news__item <?php if($news_count > 9) {echo 'hidden';} ?>">
+                  <div class="news__item <?php if ( $news_count > 9 ) {
+					  echo 'hidden';
+				  } ?>">
                     <picture>
                       <source type="image/img+svg"
                               srcset="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>">
                       <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>"
                            alt="<?php the_title(); ?>">
                     </picture>
-                    <div class="news__item__small-title"><?php $cat = get_the_category( $post->ID ); echo $cat[0]->cat_name; ?></div>
+                    <div class="news__item__small-title"><?php $cat = get_the_category( $post->ID );
+						echo $cat[0]->cat_name; ?></div>
                     <div class="news__item__title"><?php the_title(); ?></div>
                   </div>
                 </div>
@@ -178,7 +320,7 @@
 		  wp_reset_postdata(); // сброс
 		  ?>
 		  <?php
-		  if($news_count > 9) {
+		  if ( $news_count > 9 ) {
 			  ?>
             <div class="col-12" style="display: flex">
               <div class="more-news">Больше новостей</div>

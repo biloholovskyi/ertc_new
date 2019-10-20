@@ -27,27 +27,27 @@ const webConfig = {
 
 gulp.task('default', function() {
   browserSync.init({
-    proxy: "http://localhost:8888/myproject/app",
+    proxy: "http://localhost:8888/ertc_new/app",
   });
-  gulp.watch("wp-content/themes/ertc/sass/**/*.scss", function () {
-    return gulp.src("wp-content/themes/ertc/sass/**/*.scss")
+  gulp.watch("app/wp-content/themes/ertc/sass/**/*.scss", function () {
+    return gulp.src("app/wp-content/themes/ertc/sass/**/*.scss")
       .pipe(sass())
       .pipe(autoprefixer({
-        browserslist: ['> 0.1%'],
+        overrideBrowserslist: ['> 0.1%'],
         cascade: false
       }))
       .pipe(cleanCSS({
         level: 2
       }))
-      .pipe(gulp.dest("wp-content/themes/ertc/css"))
+      .pipe(gulp.dest("app/wp-content/themes/ertc/css"))
       .pipe(browserSync.stream());
   });
-  gulp.watch("wp-content/themes/ertc/js/**/*.js", function () {
-    return gulp.src("wp-content/themes/ertc/js/index.js")
+  gulp.watch("app/wp-content/themes/ertc/js/**/*.js", function () {
+    return gulp.src("app/wp-content/themes/ertc/js/index.js")
       .pipe(webpack(webConfig))
-      .pipe(gulp.dest("wp-content/themes/ertc/buildjs"))
+      .pipe(gulp.dest("app/wp-content/themes/ertc/buildjs"))
       .pipe(browserSync.stream());
   });
-  gulp.watch("wp-content/themes/ertc/**/*.php").on('change', browserSync.reload);
-  gulp.watch("wp-content/themes/ertc/**/*.html").on('change', browserSync.reload);
+  gulp.watch("app/wp-content/themes/ertc/**/*.php").on('change', browserSync.reload);
+  gulp.watch("app/wp-content/themes/ertc/**/*.html").on('change', browserSync.reload);
 });
