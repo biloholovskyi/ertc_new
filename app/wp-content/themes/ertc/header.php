@@ -34,7 +34,13 @@ if (is_admin_bar_showing()) {
       <li><a href="news">Новости</a></li>
       <li><a href="contact">Контакты</a></li>
     </ul>
-    <div class="lang">Русский <span class="icon"></span></div>
+    <div class="lang">
+      Русский <span class="icon"></span>
+      <div class="lang__block">
+        <a href="#" class="lang__link">Русский</a>
+        <a href="#" class="lang__link">English</a>
+      </div>
+    </div>
     <a href="https://client.ertc.land/auth/login" target="_blank" class="enter-platform">Вход на платформу</a>
   </div>
 </header>

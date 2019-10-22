@@ -76,6 +76,39 @@
         top: 50%;
         right: 29px;
         margin-top: -12px;
+        transition: all .3s;
+      }
+
+      .show__icon {
+        transform: rotate(180deg);
+      }
+
+      &__block {
+        width: 133px;
+        position: absolute;
+        background: #FFFFFF;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        top: 100%;
+        left: 50%;
+        margin-left: -66.5px;
+        margin-top: 7px;
+        padding: 8px 22px;
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: all .3s;
+
+        .lang__link {
+          font-size: 16px;
+          line-height: 48px;
+          color: #000000;
+        }
+      }
+
+      .show {
+        height: 112px;
+        opacity: 1;
       }
     }
 

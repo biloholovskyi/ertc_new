@@ -151,7 +151,8 @@ $emission = get_field( 'home_emission' );
             suggestedMax: 10,
             fontColor: 'rgba(57, 55, 56, 0.75)',
             fontSize: 14,
-            padding: 15
+            padding: 15,
+            maxTicksLimit: 6
           },
           gridLines: {
             drawBorder: false,
@@ -240,7 +241,8 @@ $emission = get_field( 'home_emission' );
             suggestedMax: 10,
             fontColor: 'rgba(57, 55, 56, 0.75)',
             fontSize: 14,
-            padding: 15
+            padding: 15,
+            maxTicksLimit: 6
           },
           gridLines: {
             drawBorder: false,
