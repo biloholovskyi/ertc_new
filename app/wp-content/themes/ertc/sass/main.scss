@@ -50,6 +50,14 @@ input {
 @import "pages/home/coin";
 @import "pages/home/news";
 @import "pages/home/video";
+// news
+@import 'pages/news/news';
+@import 'pages/news/article';
+// contacts
+@import 'pages/contacts/contacts';
+// about
+@import 'pages/about/head';
+@import "pages/about/about-text";
 
 /*media*/
 @import "media/1199";

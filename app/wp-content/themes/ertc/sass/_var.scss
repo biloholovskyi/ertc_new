@@ -8,3 +8,55 @@
 .none-margin-bottom {
   margin-bottom: 0 !important;
 }
+
+.input {
+  font-size: 16px;
+  line-height: 40px;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  border: 1px solid #D8D8D8;
+  border-radius: 1px;
+  width: 100%;
+
+  &::placeholder {
+    opacity: .4;
+  }
+}
+
+.input-submit {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 100%;
+  background: #393738;
+  border-radius: 1px;
+  margin-bottom: 24px;
+  border: none;
+
+  &--small {
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .input {
+    width: calc(50% - 8px);
+    min-width: calc(50% - 8px);
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+}

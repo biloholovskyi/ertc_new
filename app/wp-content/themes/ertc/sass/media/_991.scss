@@ -1,3 +1,49 @@
 @media screen and (max-width: 991px) {
+  // header
+  .header__left {
+    .header__nav {
+      li {
+        margin-right: 15px;
 
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .lang {
+      font-size: 16px;
+      padding: 0 33px 0 16px;
+
+      .icon {
+        right: 8px;
+      }
+    }
+
+    .enter-platform {
+      padding: 28px 20px 29px 20px;
+    }
+  }
+
+  // news
+  .news__item img,
+  .news__item picture {
+    height: 150px;
+  }
+
+  // video
+  .video {
+    .next-video {
+      height: 150px;
+    }
+  }
+
+  // footer
+  .footer__nav-list {
+    margin-bottom: 20px;
+  }
+
+  .footer__coop {
+    margin-top: 20px;
+  }
 }

@@ -2,6 +2,10 @@
   padding-top: 72px;
   padding-bottom: 155px;
 
+  &--page {
+    padding-top: 160px;
+  }
+
   .main-title {
     margin-bottom: 48px;
   }
@@ -38,7 +42,7 @@
             font-size: 14px;
             line-height: 18px;
             letter-spacing: 0.04em;
-            text-transform: uppercase;
+            //text-transform: uppercase;
             color: rgba(57, 55, 56, 0.75);
             margin-right: 12px;
           }

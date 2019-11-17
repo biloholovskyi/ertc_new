@@ -1,3 +1,64 @@
 @media screen and (max-width: 575px) {
+  // home main
+  .home__content {
+    .home__title {
+      font-size: 36px;
+      line-height: 48px;
+    }
+  }
 
+  // news
+  .news {
+    .more-news {
+      padding: 18px 25px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  // single
+  .article__share {
+    .icon-wrapper {
+      .item {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        background-size: 15px;
+      }
+    }
+  }
+
+  // footer
+  .footer__coop {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .coop {
+      &::after {
+        display: none;
+      }
+    }
+
+    .coop-link {
+      margin-right: 0;
+      margin-top: 15px;
+    }
+  }
+
+  // about
+  .about-head {
+    padding-top: 50px;
+  }
+
+  .about-head__title {
+    font-size: 48px;
+    line-height: 68px;
+  }
+
+  // contacts
+  .contacts__content {
+    .contacts__img {
+      height: 200px;
+    }
+  }
 }

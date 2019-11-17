@@ -86,6 +86,7 @@
 
   &__item {
     width: 100%;
+    display: block;
 
     picture,
     img {
@@ -112,6 +113,11 @@
       font-size: 24px;
       line-height: 36px;
       letter-spacing: -0.01em;
+      transition: all .3s;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -138,6 +144,12 @@
     
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  &--about {
+    .main-title {
+      border-bottom: none;
     }
   }
 }
